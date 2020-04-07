@@ -19,6 +19,8 @@ mongoose.connect('mongodb://localhost:27017/vp-cs5610-sp2020-server-mongo',
 
 require('./controllers/quiz.controller.server')(app);
 require('./controllers/question.controller.server')(app);
+require('./controllers/users.controller.server')(app);
 
 app.listen(PORT);
 console.log("Server started.....");
+console.log(`Go to http://localhost:${PORT}`);
