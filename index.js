@@ -1,5 +1,6 @@
 const express = require('express');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 5000;
 
@@ -16,6 +17,9 @@ app.use(function (request, response, next) {
 
 mongoose.connect('mongodb://localhost:27017/vp-cs5610-sp2020-server-mongo',
     {useNewUrlParser: true, useUnifiedTopology: true});
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 require('./controllers/quiz.controller.server')(app);
 require('./controllers/question.controller.server')(app);

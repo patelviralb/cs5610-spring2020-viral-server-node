@@ -1,21 +1,26 @@
 const userModel = require('../models/users.model.server');
 
-const createUser = (user) => {
-    return userModel.create(user);
-};
-const findAllUsers = () => {
-    return userModel.find();
-};
-const findUserById = (userId) => {};
-const findUserByCredentials = (userName, password) => {
-    return userModel.find({
+const createUser = (user) =>
+    userModel.create(user);
+
+const findAllUsers = () =>
+    userModel.find();
+
+const findUserById = (userId) =>
+    userModel.findOne({_id: userId});
+
+const findUserByCredentials = (userName, password) =>
+    userModel.findOne({
         username: userName, password: password
-    })
-};
+    });
+
+const deleteUser = (userId) =>
+    userModel.deleteOne({_id: userId});
 
 module.exports = {
     createUser,
     findAllUsers,
     findUserById,
-    findUserByCredentials
+    findUserByCredentials,
+    deleteUser
 };
