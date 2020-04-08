@@ -24,6 +24,7 @@ app.use(bodyParser.json());
 require('./controllers/quiz.controller.server')(app);
 require('./controllers/question.controller.server')(app);
 require('./controllers/users.controller.server')(app);
+require('./controllers/quiz-attempts.controller.server')(app);
 
 app.listen(PORT);
 console.log("Server started.....");
