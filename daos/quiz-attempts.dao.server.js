@@ -1,5 +1,5 @@
 const quizAttemptsModel = require(
-    '../models/quiz-attempts/quiz-attempts.model.server');
+    '../models/quiz-attempts/quiz-attempts.models.server');
 
 const scoreQuiz = (questions) => {
     let numberOfCorrectQuestions = 0;
