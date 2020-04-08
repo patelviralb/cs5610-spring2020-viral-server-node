@@ -13,7 +13,11 @@ const findAttemptsForQuiz = (quizId) =>
 
 const createAttempt = (quizId, attempt) =>
     quizAttemptsModel.create(
-        {quizzes: quizId, answers: attempt, score: scoreQuiz(attempt)});
+        {
+            quizzes: quizId,
+            answers: attempt,
+            score: scoreQuiz(attempt)
+        });
 
 module.exports = {
     createAttempt,
