@@ -15,10 +15,10 @@ app.use(function (request, response, next) {
     next();
 });
 
-mongoose.connect('mongodb://localhost:27017/vp-cs5610-sp2020-server-mongo',
-    {useNewUrlParser: true, useUnifiedTopology: true});
-/*mongoose.connect('mongodb://heroku_6l82r9jb:ecc4fcttt8dqkdnff19qsk5b1f@ds263808.mlab.com:63808/heroku_6l82r9jb',
+/*mongoose.connect('mongodb://localhost:27017/vp-cs5610-sp2020-server-mongo',
     {useNewUrlParser: true, useUnifiedTopology: true});*/
+mongoose.connect('mongodb://heroku_6l82r9jb:ecc4fcttt8dqkdnff19qsk5b1f@ds263808.mlab.com:63808/heroku_6l82r9jb',
+    {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
