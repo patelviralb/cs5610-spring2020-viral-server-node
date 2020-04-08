@@ -1,7 +1,18 @@
-const questionService = require('../services/question.service.server');
+const questionsService = require('../services/questions.service.server');
 
-module.exports = (app) => {
+module.exports = function (app) {
     app.get('/api/quizzes/:quizId/questions', (request, response) => {
-        response.json(questionService.findQuestionsForQuiz(request.params['quizId']));
+        questionsService.findQuestionsForQuiz(request.params['quizId'])
+            .then(questions => response.json(questions));
     });
-}
+
+    app.get('/api/questions', (request, response) => {
+        questionsService.findAllQuestions()
+            .then(allQuestions => response.json(allQuestions));
+    });
+
+    app.get('/api/questions/:questionId', (request, response) => {
+        questionsService.findQuestionById(request.params['questionId'])
+            .then(question => response.json(question))
+    });
+};
