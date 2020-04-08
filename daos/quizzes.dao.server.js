@@ -5,7 +5,8 @@ const findAllQuizzes = () =>
         .populate('questions');
 
 const findQuizById = (quizId) =>
-    quizzesModel.findById(quizId);
+    quizzesModel.findById(quizId)
+        .populate('questions');
 
 module.exports = {
     findAllQuizzes,
